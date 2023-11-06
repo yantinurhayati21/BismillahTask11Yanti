@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace BismillahTask11Yanti.View
 {
@@ -19,16 +21,26 @@ namespace BismillahTask11Yanti.View
         }
 
         private void btnLog_Click(object sender, EventArgs e)
-        {
-            Main main = new Main();
-            if (main != null)
+        {        
+            string username = "yanti";
+            string password = "admin";
+            if (txtUs.Text == username && txtPsw.Text == password)
             {
+                this.Hide();
+                MessageBox.Show("Login Succes");
+                Main main = new Main();
                 main.login = this;
                 main.Show();
                 this.Hide();
             }
+            else
+            {
+                MessageBox.Show("The User name or password you entered is incorrect, try again");
+                txtUs.Clear();
+                txtPsw.Clear();
+                txtUs.Focus();
+            }
         }
-
         public string GetName()
         {
             this.name = "Hello " + this.txtUs.Text;
@@ -38,6 +50,7 @@ namespace BismillahTask11Yanti.View
         private void Login_Load(object sender, EventArgs e)
         {
             txtUs.MaxLength = 7;
+            txtPsw.MaxLength = 7;
         }
 
         private void txtUs_KeyPress(object sender, KeyPressEventArgs e)

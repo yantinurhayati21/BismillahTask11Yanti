@@ -13,6 +13,9 @@ namespace BismillahTask11Yanti.View
 {
     public partial class PesertaAdd : Form
     {
+        Form2 pr2 = new Form2();
+        PesertaController controller = new PesertaController();
+        ValidasiController val = new ValidasiController();
         public PesertaAdd()
         {
             InitializeComponent();
@@ -27,16 +30,31 @@ namespace BismillahTask11Yanti.View
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            PesertaController pesertaController = new PesertaController();
-            pesertaController.tambahPeserta(txtIdPs.Text, txtNmPs.Text, txtEmail.Text, txtNoT.Text);
-            this.Controls.Clear();
-            this.InitializeComponent();
-            txtIdPs.Focus();
-            MessageBox.Show("data disimpan");
-            Form2 lk = new Form2();
+            if (val.ValidateName(txtNmPs.Text) && val.ValidateAddress(txtEmail.Text))
+            {
+                try
+                {
+                    PesertaController pesertaController = new PesertaController();
+                    pesertaController.tambahPeserta(txtIdPs.Text, txtNmPs.Text, txtEmail.Text, txtNoT.Text);
+                    this.Controls.Clear();
+                    this.InitializeComponent();
+                    txtIdPs.Focus();
+                    MessageBox.Show("data disimpan");
+                    Form2 lk = new Form2();
+                    lk.Show();
+                    this.Hide();
 
-            lk.Show();
-            this.Hide();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Empty field", "Add Peserta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -59,11 +77,6 @@ namespace BismillahTask11Yanti.View
         }
 
         private void txtNmPs_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
-        }
-
-        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
         }

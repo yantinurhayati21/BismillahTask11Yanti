@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using BismillahTask11Yanti.Model;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,7 @@ namespace BismillahTask11Yanti.Controller
 {
     internal class PesertaController: Model.Connection
     {
+        Connection koneksi = new Connection();
         public DataTable selectPeserta(MySqlCommand command)
         {
             DataTable datePeserta = new DataTable();
@@ -99,6 +101,23 @@ namespace BismillahTask11Yanti.Controller
                 MessageBox.Show("Gagal delete" + ex.Message);
             }
 
+        }
+
+        public DataTable searchPeserta(string search)
+        {
+            DataTable table = new DataTable();
+            try
+            {
+                MySqlCommand command = new MySqlCommand
+                    ("select * from Peserta where concat(id, nama_peserta,email,no_telepon)like '%" + search + "%'",koneksi.GetConn());
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return table;
         }
     }
 }

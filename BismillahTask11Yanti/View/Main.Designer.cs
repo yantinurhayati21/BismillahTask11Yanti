@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtLogin = new System.Windows.Forms.TextBox();
             this.btnPeserta = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.txtLogin = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -57,6 +57,9 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.PaleTurquoise;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(186, 44);
@@ -77,6 +80,8 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.MediumTurquoise;
             this.panel2.Controls.Add(this.txtLogin);
             this.panel2.Controls.Add(this.btnPeserta);
@@ -88,6 +93,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(231, 645);
             this.panel2.TabIndex = 6;
+            // 
+            // txtLogin
+            // 
+            this.txtLogin.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.txtLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLogin.Location = new System.Drawing.Point(3, 120);
+            this.txtLogin.Multiline = true;
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(220, 35);
+            this.txtLogin.TabIndex = 6;
+            this.txtLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnPeserta
             // 
@@ -103,6 +119,8 @@
             // 
             // panel6
             // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.label8);
@@ -226,15 +244,20 @@
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel4.Location = new System.Drawing.Point(231, 105);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(789, 538);
+            this.panel4.Size = new System.Drawing.Size(789, 541);
             this.panel4.TabIndex = 7;
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.MintCream;
             this.button1.Font = new System.Drawing.Font("Lucida Calligraphy", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(231, 1);
@@ -247,7 +270,9 @@
             // 
             // btnExit
             // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.BackColor = System.Drawing.Color.Red;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnExit.Location = new System.Drawing.Point(937, 2);
@@ -257,17 +282,6 @@
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // txtLogin
-            // 
-            this.txtLogin.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.txtLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogin.Location = new System.Drawing.Point(3, 120);
-            this.txtLogin.Multiline = true;
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(220, 35);
-            this.txtLogin.TabIndex = 6;
-            this.txtLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Main
             // 
@@ -279,7 +293,6 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Beranda";
